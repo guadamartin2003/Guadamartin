@@ -42,4 +42,31 @@ def palabras_unidas(string):
         return "Patron encontrado"
     else:
         return "Patron encontrado"
-    
+
+# Ejercicio 8
+def extraer_numeros(string):
+    resultado= re.split("\D+", string)
+    for elemento in resultado:
+        print(elemento)
+
+# Ejercicio 9
+def entre_guiones(string):
+    return re.findall(r"-(.*?)-", string)
+
+string = "Hoy estuvimos trabajando con re -regular expression- en python -con VSCode-"
+
+# Para el operador logico or = | 
+# Para el operador logico and = &
+
+# Ejercicio 11
+def dos_P(lista):
+    for elemento in lista:
+        resultado = re.match("(P\w*)\W(P\w*)", elemento)
+        if resultado is not None:
+            print(resultado.group())
+
+lista = ["Práctica Python", "Práctica C++", "Práctica Frontran"]
+print(lista)
+
+
+
