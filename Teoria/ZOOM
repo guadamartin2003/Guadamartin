@@ -1,0 +1,15 @@
+La clase es la representacion de un objeto
+pipita= Golondrina ---- instancia
+los objetos tienen atributos
+        cantidad_dientes y energia
+init es el constructor, define el estado inicial.
+self. --- es la referencia al propio objeto o instancia particular
+diferencia entre metodo y funcion
+        los metodos se encuentran dentro de una clase y una funcion no
+diferencia entre metodo y procedimiento
+        la misma que la anterior
+
+los metodos podrian retornar algo los procedimientos no
+
+los objetos que comparten ciertos mensajes se llaman objetos polimorficos
+
