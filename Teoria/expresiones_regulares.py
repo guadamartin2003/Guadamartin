@@ -186,6 +186,7 @@ def dos_p(lista):
 def reemplazar_caracteres(string):
     return re.sub('[\s_:]','|',string)
 # print(reemplazar_caracteres('hola: salva_burgos'))
+#\s espacio en blanco
 
 # Ejercicio 13
 # Escribí un programa que reemplace los dos primeros caracteres no alfanúmericos por guiones bajos.
@@ -215,3 +216,16 @@ print(mail_correcto('salva-burgos@gmail.com'))
 # [a-zA-Z]+[.][a-z]+ <-- a continuacion el dominio (incluye solo letras minusculas ej: 'gmail'). Luego separa un '.' obligatoriamente del 'com' o 'edu'
 # [.]?[a-z]? <-- puede incluir el '.ar' por ejemplo. NO es necesacrio que lo incluya
 # $ --> Fin de string. Incluir si o si si incluyo el ^ al inicio para 
+
+"""
+^ - Indica que la búsqueda debe comenzar desde el inicio de la cadena
+\w+ - Indica que hay uno o más caracteres alfanuméricos al principio del mail
+[.-]? - Indica que se puede tener opcionalmente un punto o un guion
+\w* - Indica que hay cero o más caracteres alfanuméricos después del punto o guion
+@ - Indica que debe aparecer una arroba
+[a-zA-Z]+ - Indica que debe haber una o más letras después de la arroba
+[.] - Indica que debe haber un punto
+[a-z]+ - Indica que debe haber una o más letras minúsculas después del punto
+[.]? - Indica que el último punto puede estar o no presente
+[a-z]? - Indica que el último carácter puede ser una letra minúscula o no
+"""
