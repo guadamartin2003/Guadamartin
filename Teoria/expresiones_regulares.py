@@ -1,13 +1,15 @@
+#La principal diferencia entre ambas funciones es que search devuelve la primera coincidencia encontrada, mientras que findall devuelve una lista con todas las coincidencias encontradas.
+
 import re
 
 # Ejercicio 1
-# Escribí un programa que verifique si un string tiene al menos un carácter permitido. Estos caracteres son a-z, A-Z y 0-9.
+# Escribí un programa que verifique (True or False) si un string tiene al menos un carácter permitido. Estos caracteres son a-z, A-Z y 0-9.
 
 def caracteres_permitidos(string):
     return bool(re.search('[a-zA-Z0-9]',string)) #bool() Devuelve un booleano  
     # Método .search() se utiliza para buscar un patrón de expresión regular en una cadena. Sintaxis: (PATRON, CADENA)
     #Explicación del patron: rangos de a-z, A-Z, 0-9
-# print(caracteres_permitidos('adadadasdasda'))
+print(caracteres_permitidos('adadadasdasda'))
 
 # Ejercicio 2
 # Escribí un programa que verifique si un string tiene todos sus caracteres permitidos. Estos caracteres son a-z, A-Z y 0-9.
@@ -20,7 +22,7 @@ def todos_caracteres_permitidos(string):
 # *: El símbolo "*" indica que el conjunto de caracteres anterior puede estar presente cero o más veces.
 # $: El símbolo "$" indica que la búsqueda debe terminar al final de la cadena.
 
-# print(todos_caracteres_permitidos('admfskaefheisofASAZ/'))
+print(todos_caracteres_permitidos('admfskaefheisofASAZ/'))
 
 #ALTERNATIVA GUILLERMO PRÁCTICA
 def todos_caracteres_permitidos2(string):
@@ -33,17 +35,20 @@ def todos_caracteres_permitidos2(string):
 # si un string dado tiene una h seguida de ninguna o más e.
 def tiene_h(string):
     return bool(re.search('he*',string)) # * <-- 0 o más 'e'
-# print(tiene_h('heeeeeeeeeeeee'))   
+print(tiene_h('heeeeeeeeeeeee'))   
+
 # si un string dado tiene una h seguida de una o más e.
 def tiene_h2(string):
-    return bool(re.search('he+',string)) # + <-- al menos 1 "e"
+    return bool(re.search('he+',string)) # + <-- al menos 1 "e" y ninguna otra letra
+
 # si un string dado tiene una h seguida de cero o una e.
 def tiene_h3(string):
     return bool(re.search('he?',string)) # ? <-- indica que la 'e' puede estar presente o no. Es decir, 0 o 1 vez
+
 # si un string dado tiene una h seguida de dos o tres e.
 def tiene_h4(string):
     return bool(re.search('he{2,3}',string)) # {2,3} <-- Refiere al rango de veces que debe aparecer la 'e' Entre 2 y 3 veces.
-# print(tiene_h4('heee'))   
+print(tiene_h4('heee'))   
 
 # Ejercicio 4
 # Realizá un programa que encuentre una palabra unida a otra con un guión bajo en un string dado (el string no debe contener espacios).
@@ -54,7 +59,7 @@ def dividido_por_guion(string):
 # [a-zA-Z]+ <-- busca una o mas letras (segunda palabra)
 # $ <-- Este símbolo indica el final de la línea.
 
-# print(dividido_por_guion('adnadawd_dawdawdsd'))
+print(dividido_por_guion('adnadawd_dawdawdsd'))
 
 # Ejercicio 5
 # Escribí un programa que diga si un string empieza con un número específico.
@@ -66,6 +71,20 @@ def empieza_con_numero(string,numero):
 # Ejercicio 6
 # Escribí un programa que dada una lista de strings verifique si se encuentran en una frase dada.
 
+def verificar_frase(frase, lista_palabras):
+    for palabra in lista_palabras:  # Recorremos la lista de palabras
+        # Utilizamos la función 're.search' para buscar la palabra en la frase. 
+        # La expresión regular que utilizamos es '\b{palabra}\b', donde '\b' indica que se debe buscar la palabra completa y no como parte de otra palabra.
+        if re.search(fr'\b{palabra}\b', frase):
+            print(f'La palabra "{palabra}" se encuentra en la frase.')
+        else:
+            print(f'La palabra "{palabra}" no se encuentra en la frase.')
+
+# Ejemplo de uso:
+frase = "El rápido zorro marrón salta sobre el perro perezoso."
+lista_palabras = ["zorro", "salta", "perezoso", "oso"]
+verificar_frase(frase, lista_palabras)
+
 # NO ENTENDÍ
 
 # Ejercicio 7
@@ -76,16 +95,16 @@ def min_num_espacios(string):
     # [a-zA-Z0-9\s]+ <-- representa uno o más caracteres que pueden ser una letra (mayúscula o minúscula) o un número o un espacio en blanco.
     # $ <-- Representa el final del string.
 
-# print(min_num_espacios('adakjwda 234 dd ss34AJSDAKDHA'))
+print(min_num_espacios('adakjwda 234 dd ss34AJSDAKDHA'))
 
 # Ejercicio 8
 # Escribí un programa que separe y devuelva los caracteres númericos de un string.
 
 def numeros_en_string(string):
-    return re.findall('[\d]',string) # .findall() devuelve todas las ocurrencias de un patrón en un string
+    return re.findall('[\d]',string) # .findall() devuelve todas las ocurrencias de un patrón en un string de modo de lista
 # '\d' <-- refiere a caracteres numéricos.
 
-# print(numeros_en_string('1 23 14234dadawdawd'))
+print(numeros_en_string('1 23 14234dadawdawd'))
 
 # Ejercicio 9
 # Escribí un programa que extraiga los caracteres que estén entre guiones en un string. (String de ejemplo: "Hoy estuvimos trabajando con re -regular expression- en python -con VSCode-")
@@ -97,20 +116,37 @@ def separado_por_guiones(string):
 # - <-- el patrón comienza y termina con un guion
 # (.*?) <-- es un grupo de captura que coincide con cualquier número de caracteres
 
-# print(separado_por_guiones('Hoy estuvimos trabajando con re -regular expression- en python -con VSCode-'))
+print(separado_por_guiones('Hoy estuvimos trabajando con re -regular expression- en python -con VSCode-'))
 
 # Ejercicio 10
 # Obtené las substrings y las posiciones de estas en una string dada considerando que las substrings están delimitadas por los caracteres @ o &.
 
 def subustrings(string):
+     # Utilizamos la función re.findall() para buscar todas las ocurrencias del patrón "@(cualquier cosa)@" o "&(cualquier cosa)&"
+    # En este caso, utilizamos la sintaxis '[@|&]' para indicar que puede ser cualquiera de estos dos caracteres
+    # Utilizamos los paréntesis para indicar que sólo queremos extraer la subcadena que está entre los símbolos @ o &
+    # El modificador ? se utiliza para que la búsqueda sea no-greedy, es decir, que la expresión regular trate de hacer el menor match posible
+    # Si no utilizamos el modificador ?, la expresión regular buscará el match más grande posible, lo cual puede llevar a resultados inesperados
     return re.findall('[@|&](.*?)[@|&]',string)
 
-# print(subustrings('wdadawda @ dsede &awdawda&d@'))
+print(subustrings('wdadawda @ dsede &awdawda&d@'))
+
+#con la posicion
+
+def subustrings1(string):
+    matches = re.findall('[@&](.*?)[@&]', string)
+    result = []
+    start = 0
+    for match in matches:
+        posicion = string.find(match, start)
+        result.append((match, posicion))
+        start = posicion + len(match)
+    return result
 
 # Ejercicio 11
 # Realizá un programa que dado una lista de strings verifique que dos palabras dentro del string empiecen con la letra P y las imprima. (Lista de ejemplo: ["Práctica Python", "Práctica C++", "Práctica Fortran"]).
 def dos_p(lista):
-    lista_p = []
+    lista_p = [] #porque pide lista
     posicion = -1
     for string in lista:
         posicion +=1
@@ -135,6 +171,14 @@ def dos_P(lista):
             print(resultado.group())
 # dos_P(["Práctica Python", "Práctica C++", "Práctica Fortran", "Pala Pal"]) 
 # DEVUELVE LAS COINCIDENCIAS EN UN STRING
+
+def dos_p(lista):
+    lista_p = []
+    for string in lista:
+        if re.search("(P\w*)\W(P\w*)", string):
+            lista_p.append(string)
+    return lista_p
+
 
 # Ejercicio 12
 # Escribí un programa que reemplace todas las ocurrencias de espacios, guiones bajos y dos puntos por la barra vertical (|).
