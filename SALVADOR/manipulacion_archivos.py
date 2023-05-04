@@ -5,12 +5,21 @@
 contador = 0
 ruta_archivo = 'C:/Users/salva/Desktop/fundamentos_inf/fi_ucema_burgos/practicas/texto_prueba.txt'
 def empieza_con_letra(letra):
-    global contador
-    with open(ruta_archivo,'r') as archivo:
-        for linea in archivo:
-            if not linea.startswith(letra.lower() or letra.upper()):
-                contador+=1
+    global contador # indicamos que la variable 'contador' está definida fuera de la función y se puede modificar dentro de ella
+    with open(ruta_archivo,'r') as archivo: # abrimos el archivo en modo lectura con 'with' para asegurarnos de cerrarlo automáticamente
+        for linea in archivo: # leemos línea por línea del archivo
+            if not linea.startswith(letra.lower() or letra.upper()): # comprobamos si la línea no comienza con la letra (pasada como argumento) en minúscula o mayúscula
+                contador += 1 # si no comienza con la letra, incrementamos el contador
+
 empieza_con_letra('p')
+
+def lineas_no_coincidentes(archivo, letra):
+    contador = 0
+    with open(archivo, 'r') as f: # Abrimos el archivo en modo lectura
+        for linea in f:
+            if not linea.startswith(letra):
+                contador += 1
+    return contador
 # print(contador)
 
 #ALTERNATIVA GUILLERMO PRÁCTICA
@@ -24,21 +33,25 @@ def start_with(letra,archivo):
 
 # Ejercicio 2
 # Escribí un programa que lea un archivo e imprima las primeras n líneas.
-def leer_n_lineas(cantidad,archivo):
-    with open(archivo,'r') as file:
-        for i in range(cantidad):
-            print(file.readline())
+def leer_n_lineas(cantidad, archivo):
+    with open(archivo,'r') as file:# Abre el archivo en modo lectura y lo asigna a la variable "file".
+         for i in range(cantidad):# Itera sobre los primeros "cantidad" de líneas del archivo.
+            print(file.readline())# Imprime la línea actual.
 
 # print(leer_n_lineas(1,'C:/Users/salva/Desktop/fundamentos_inf/fi_ucema_burgos/practicas/texto_prueba.txt'))
 
 # Ejercicio 3
 # Escribí un programa que lea un archivo, guarde las líneas del archivo en una lista y luego imprima las n últimas.
 
-def imprimir_ultimas(cantidad,archivo):
-    with open(archivo,'r') as file:
-        print(file.readlines()[-cantidad:])
-
-# imprimir_ultimas(4,'C:/Users/salva/Desktop/fundamentos_inf/fi_ucema_burgos/practicas/texto_prueba.txt')
+def imprimir_ultimas(cantidad, archivo):
+    with open(archivo, 'r') as file: # Abrimos el archivo en modo lectura
+        lineas = file.readlines()   # Leemos todas las líneas del archivo y las almacenamos en la variable 'lineas'
+        ultimas = lineas[-cantidad:] # Obtenemos las últimas 'cantidad' líneas del archivo 
+        print(ultimas)              # Imprimimos las últimas líneas obtenidas
+ #lineas[-cantidad:] significa que se toman los elementos desde la posición -cantidad  hasta el final de la lista. 
+ #[:cantidad] mostraría las primeras cantidad líneas del archivo en lugar de las últimas.
+ #[cantidad:] significa que toma todas las posiciones de la lista desde la posición cantidad hasta el final.
+# print(imprimir_ultimas(4,'C:/Users/salva/Desktop/fundamentos_inf/fi_ucema_burgos/practicas/texto_prueba.txt'))
 
 #ALTERNATIVA GUILLERMO PRÁCTICA 
 
