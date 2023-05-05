@@ -1,0 +1,2 @@
+Hola, este es un archivo de texto de ejemplo. Este archivo es utilizado para demostrar la función replace en la manipulación de archivos.
+Quiero comprobar si se hizo el salto de linea

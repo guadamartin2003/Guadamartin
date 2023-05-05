@@ -1,0 +1,5 @@
+Hola, este es un ejemplo de archivo de texto. 
+Este es un archivo de varias líneas. 
+Espero que esto te ayude a entender cómo funciona la lectura de archivos en Python.
+ropa color pink_red Espero
+probable principal rpia rpresentacion
