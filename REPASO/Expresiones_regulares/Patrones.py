@@ -60,7 +60,6 @@ r'-(.*?)-' #extraiga los caracteres que estén entre guiones
 # [.]?[a-z]? <-- puede incluir el '.ar' por ejemplo. NO es necesacrio que lo incluya
 # $ --> Fin de string. Incluir si o si si incluyo el ^ al inicio para 
 
-
 """
 ^ - Indica que la búsqueda debe comenzar desde el inicio de la cadena
 \w+ - Indica que hay uno o más caracteres alfanuméricos al principio del mail

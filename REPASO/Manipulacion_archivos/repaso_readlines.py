@@ -53,13 +53,13 @@ with open('ejemplo.txt', 'r') as f:
                 print(palabra, coincidencias)
 
 #Ejemplo lista de telefonos
-"""""
-lo hizo guille pero me da error
+
+#lo hizo guille pero me da error
 
 with open('telefonos.txt', 'r')  as telefonos_validos:
     for linea in telefonos_validos:
         telefonos = linea.split()
-        if re.findall( "(+5411)([0-9]{8})", telefonos):
+        if re.findall( r"(+5411)([0-9]{8})", telefonos):
          print(telefonos_validos)
 
 """
@@ -71,5 +71,5 @@ with open('telefonos.txt', 'r')  as telefonos_validos:
         for telefono in telefonos:
             if re.findall(r"\+5411\d{8}", telefono): #r Python no interpretará los caracteres especiales como \n (nueva línea) o \t (tabulación) como lo haría normalmente.
                 print(telefono)
-
+"""""
 #el + se escapa con \ para indicar que se busca el caracter literal +. Luego, 54 y 11 son los números que deben aparecer después del +. Finalmente, \d{8} se refiere a cualquier dígito (\d) que aparezca exactamente 8 veces.

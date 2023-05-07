@@ -57,3 +57,8 @@ re.findall(patron, texto)
 [' dolor ', ' elit. Amet ']
 
 re.sub(patron, "###", texto) #La función sub permite reemplazar todos las ocurrencias del patrón por otro patrón en un String.
+
+# Escribí un programa que reemplace todas las ocurrencias de espacios, guiones bajos y dos puntos por la barra vertical (|).
+
+def reemplazar_caracteres(string):
+    return re.sub('[\s_:]','|',string)
