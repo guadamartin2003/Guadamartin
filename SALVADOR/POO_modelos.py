@@ -156,23 +156,46 @@ Al estudiar su energía disminuye 20 puntos por cada hora de estudio.
 Si aprueban su estado de ánimo pasa a ser "Feliz".
 Definí las clases Persona y Estudiante con los atributos y métodos correspondientes y hacé que esta última herede de la primera. Además instanciá a un Estudiante y ejecutá las siguientes líneas:
 
-estudiante = Estudiante(100)
-estudiante.hacer_ejercicio(30)
-estudiante.estudiar(3)
-estudiante.comer()
-print(estudiante.aprobar())
-print(estudiante.energia_actual())
-cuyo resultado tiene que ser:
-
-True
-25.0
 """
+class Persona:
+    def __init__(self, energia):
+        self.energia = energia
+        self.feliz = False
 
+    def obtener_energia(self):
+        return self.energia
+
+    def dormir(self, horas):
+        self.energia += horas * 12.5  # Se recupera 12.5 puntos de energía por hora de sueño
+
+    def comer(self):
+        self.energia += 10
+
+    def hacer_ejercicio(self, minutos):
+        self.energia -= minutos * 0.8333  # Se gasta 0.8333 puntos de energía por minuto de ejercicio
+
+    def estado_animo(self):
+        return self.feliz
+
+
+class Estudiante(Persona):
+    def estudiar(self, horas):
+        self.energia -= horas * 20
+
+    def aprobar(self):
+        self.feliz = True
+        return self.feliz
+
+    def energia_actual(self):
+        return self.energia
 
 
 estudiante = Estudiante(100)
 estudiante.hacer_ejercicio(30)
 estudiante.estudiar(3)
 estudiante.comer()
+estudiante.aprobar()
 print(estudiante.aprobar())
 print(estudiante.energia_actual())
+
+
