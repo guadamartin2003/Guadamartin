@@ -9,7 +9,7 @@ import re, os, glob
 
 def filtrar(archivo):           #archivos de salida, el que tenemos que crear
 
-    textos = glob.glob("*.txt")
+    textos = glob.glob("*.txt") #obtener una lista de todos los archivos de texto en el directorio actual.
 
     with open (archivo, "a") as arch:
         for archivo in textos:

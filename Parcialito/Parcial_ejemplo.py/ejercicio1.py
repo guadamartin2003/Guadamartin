@@ -7,6 +7,10 @@ import re
 def delimitados_piquitos_sin_o(string):
     print(re.findall("<([^o].*?)>", string))
 
+#El corchete [] se utiliza para definir una clase de caracteres, y 
+#el símbolo ^ dentro de la clase se utiliza como negación, 
+# lo que significa que coincide con cualquier carácter que no esté dentro de la clase especificada.
+
 delimitados_piquitos_sin_o("ds<hola>hsb<hhj>sdk<469>nkd")
 
 # b) Onomatopopih, que aún no sabe mucho de expresiones regulares,

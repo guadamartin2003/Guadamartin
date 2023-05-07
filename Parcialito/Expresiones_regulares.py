@@ -5,16 +5,18 @@ import re
 
 patron = "X(.*?ab.*?)Y" #signo de preg favorecer matches internos
 
-#patron_ok = "X([^X]*?ab[^Y].*?)Y"
+patron_ok = "X([^X]*?ab[^Y].*?)Y"
 
 def funcion1(string):
-    print(re.findall(patron, string))
+    print(re.findall(patron_ok, string))
 
 funcion1("XbaaaYjXababYqXbabbbbaaYqXffeeY")
 
 # . cualquier carac 
 # * 0 o mas veces
 # ? matches internos --> que mire adentro y no solo los bordes
+#.*? Coincide con cualquier número (incluido cero) de caracteres, de manera no codiciosa.
+#También utiliza el modificador ? no codicioso para que coincida con la subsecuencia más corta posible.
 
 
 # Onomatopopih está aprendiendo expresiones regulares y le pidieron construir una función que sea capaz de extraer

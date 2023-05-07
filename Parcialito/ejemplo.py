@@ -6,16 +6,16 @@
 import os, glob, sys
 
 def primeras_lineas(path_a_txt, path_resultado, salida):
-    
+
     os.chdir(path_a_txt) #change direcory  #movemos a marzo
 
     textos=glob.glob("*.txt") #extraemos los .txt
     
-    primer_linea = []   #leemos las primeras primeras_lineas
+    primer_linea = []   
     
     for txt in textos:
     
-        with open(txt, "r") as texto:
+        with open(txt, "r") as texto: #leemos las primeras primeras_lineas
     
             primer_linea.append(texto.readline())
     
@@ -27,7 +27,7 @@ def primeras_lineas(path_a_txt, path_resultado, salida):
     
         for linea in primer_linea:
     
-            final_txt.write(linea)   #poner lineas en archivo nuevo
+            final_txt.write(linea) 
 
 primeras_lineas("datos/marzo", "resultado", "salida.txt")
 
