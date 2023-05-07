@@ -5,10 +5,10 @@ import re
 
 patron = "X(.*?ab.*?)Y" #signo de preg favorecer matches internos
 
-patron_ok = "X([^X]*?ab[^Y].*?)Y"
+#patron_ok = "X([^X]*?ab[^Y].*?)Y"
 
 def funcion1(string):
-    print(re.findall(patron_ok, string))
+    print(re.findall(patron, string))
 
 funcion1("XbaaaYjXababYqXbabbbbaaYqXffeeY")
 

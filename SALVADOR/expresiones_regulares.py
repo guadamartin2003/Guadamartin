@@ -9,7 +9,7 @@ def caracteres_permitidos(string):
     return bool(re.search('[a-zA-Z0-9]',string)) #bool() Devuelve un booleano  
     # Método .search() se utiliza para buscar un patrón de expresión regular en una cadena. Sintaxis: (PATRON, CADENA)
     #Explicación del patron: rangos de a-z, A-Z, 0-9
-print(caracteres_permitidos('adadadasdasda'))
+print(caracteres_permitidos('adad////adasdasda'))
 
 # Ejercicio 2
 # Escribí un programa que verifique si un string tiene todos sus caracteres permitidos. Estos caracteres son a-z, A-Z y 0-9.

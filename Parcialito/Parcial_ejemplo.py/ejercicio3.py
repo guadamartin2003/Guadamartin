@@ -15,14 +15,14 @@ import os, glob, re
 def encontrar_discurso(archivo):
     os.mkdir("Gryffindor")                      #creo gryf
 
-    discurso = glob.glob("*.log")               #archivos log 
+    discurso = glob.glob("*.log")               #todos los archivos log 
 
     for a in discurso:                       # por cada archivo log 
 
         with open (a, "r") as file:          #abrilo
             palabras = file.readlines()                  #lee las primeras 4 lineas 
             
-            with open ("Gryffindor/"+archivo, "a") as file2:            #abri selec
+            with open ("Gryffindor/"+ archivo, "a") as file2:            #abri selec
                 file2.write(str(palabras[0:4]))
 
 encontrar_discurso("selección_del_sombrero.txt")
