@@ -49,6 +49,21 @@ os.mkdir("nuevo_directorio")
 #Por otro lado, os.listdir() es una función que se utiliza para obtener una lista de todos los archivos y subdirectorios en un directorio determinado.
 os.listdir(path)
 
+os.mkdir(ruta) # el cual sirve para crear una carpeta en la ruta indicada (si queremos crearla en la carpeta donde estamos parados solo tenemos que poner el nombre de la carpeta).
+os.chdir(ruta) # el cual nos permite movernos de carpeta hasta la ruta indicada.
+
+# crear la carpeta Prácticas en el directorio actual:
+os.mkdir("Prácticas")
+
+# crear la carpeta Teorías en el directorio superior:
+os.mkdir("../Teorías")
+
+# movernos a la carpeta Prácticas:
+os.chdir("Prácticas")
+
+# movernos desde Prácticas a Teorías
+os.chdir("../../Teorías")
+
 #definir un procedimiento que lea los archivos .txt que esten en la carpeta de marzo,
 # y copie la primera linea de cada uno en un archivo dentro de la carpeta resulados
 #(que debe estar dentro de new) 

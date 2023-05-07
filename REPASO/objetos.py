@@ -29,6 +29,7 @@ False
 >>>celular_de_eli.saldo
 300
 
+#objeto#
 pipita= "Golondrina" #: instancia
 
 #diferencia entre metodo y funcion
@@ -50,34 +51,36 @@ class Celular:
     self.saldo = un_saldo
     self.sistema_operativo=un_sistema_operativo
 
-  def tiene_bateria_maxima(self):
+  def tiene_bateria_maxima(self): #cargar a tope cambia mi bateria inicial a 100
     return self.bateria == 100
   # algunos metodos retornan otros no
   
-  def cargar_a_tope(self):
+  def cargar_a_tope(self):  #cargar a tope cambia mi bateria inicial a 100
     self.bateria=100
   #este no retorna nada
    
-  def necesita_saldo(self):
+  def necesita_saldo(self): #retorna un booleano
     return self.saldo==0
   
 class Gato:
   def __init__(self, una_energia, una_edad):
     self.energia=una_energia
     self.edad=una_edad
-  def comer(self,gramos):
+
+  def comer(self,gramos): # en esta funcion necesito que me digan los gramos para cambiar mi energia
     self.energia+=gramos
+
   def cumplir_anios(self):
     self.edad+=1
-    
+
+#objeto    #instancia    
 mi_gato = Gato(10, 2)
 print("Mi gato tiene", mi_gato.edad, "años y", mi_gato.energia, "gramos de comida en su estómago")
 
-gato1 = Gato(10, 2)
+gato1 = Gato(10, 2) #inicial
 print(gato1.edad)  # salida: 2
 gato1.cumplir_anios()
 print(gato1.edad)  # salida: 3
-
 
 
 class EstudianteDeVeterinaria:
@@ -91,9 +94,8 @@ class EstudianteDeVeterinaria:
   def puede_dar_el_alta(self, animal):
     return animal.esta_feliz()
 
-
 class Gato:
-  def __init__(self, energia, edad):
+  def __init__(self, energia, edad): #recibo esta informacion
     self.energia = energia
     self.edad = edad
 
@@ -108,18 +110,23 @@ class Gato:
 
 
 class Caballo:
-  def __init__(self, una_energia, una_raza):
+  def __init__(self, una_energia, una_raza, kms):
     self.energia = una_energia
     self.raza = una_raza
+    self.kms = kms
 
   def comer(self, gramos):
-    self.energia += gramos * 2
+    self.energia += gramos * 2 #modifica la energia
 
   def esta_feliz(self):
     return True
 
   def galopar(self, kms):
-    self.energia -= kms
+    self.energia -= kms #modifica la energia
+
+  def kilometros_recorridos(self, kms):
+     self.kms += kms
+
 
   def recibir_rehabilitacion(self):
     self.galopar(3)
@@ -146,10 +153,10 @@ class Golondrina:
     self.volar_hacia("Lihuel Calel")
 
 class Pasta:
-    def __init__(self):
+    def __init__(self): #siempre inicio con 0 ajies
         self.ajies = 0
         # self solo porque ajies no cambia, cambia la cantidad
-    def suavizar(self):
+    def suavizar(self): 
       self.ajies -=1
       # self porque ajies no cambia, cambia la cantidad
 
@@ -167,7 +174,10 @@ class Chef:
     
     def picantear(self):
         if isinstance(self.plato_del_dia, Pasta):
-          #La función isinstance(obj, clase) es una función incorporada de Python que se utiliza para verificar si un objeto (obj) es una instancia de una clase determinada (clase). En el código proporcionado, se utiliza la función isinstance para verificar si self.plato_del_dia es una instancia de la clase Pasta o Pizza. Dependiendo de la instancia, se realizan diferentes acciones en el método picantear del objeto Chef. En resumen, isinstance es una función que ayuda a determinar si un objeto es de un determinado tipo de clase.
+          #La función isinstance(obj, clase) es una función incorporada de Python que se utiliza para verificar si un objeto (obj) es una instancia de una clase determinada (clase). 
+          # En el código proporcionado, se utiliza la función isinstance para verificar si self.plato_del_dia es una instancia de la clase Pasta o Pizza. 
+          # Dependiendo de la instancia, se realizan diferentes acciones en el método picantear del objeto Chef. 
+          # En resumen, isinstance es una función que ayuda a determinar si un objeto es de un determinado tipo de clase.
             if self.plato_del_dia.ajies > 10:
                 raise Exception("El plato ya está demasiado picante")
             else:
@@ -189,7 +199,7 @@ class Notebook:
         self.bateria = bateria
 
     def utilizar(self, minutos):
-        self.bateria -= minutos
+        self.bateria -= minutos #minutos cambia mi nivel de bateria
     # no inicializo con minuto porque inicializo con bateria y los minutos cambian la bateria
     
     def tiene_bateria(self):
@@ -204,6 +214,7 @@ class Notebook:
 class Dispositivo:
     def __init__(self, bateria):
         self.bateria = bateria
+        
     def tiene_bateria(self):
         return self.bateria > 20
 
@@ -289,7 +300,7 @@ class Auto(MedioDeTransporte):
 
     def recorrer(self, kilometros):
         self.combustible -= kilometros/2
-        
+
 class Colectivo(MedioDeTransporte):
     maximo_personas = None
 
@@ -300,6 +311,46 @@ class Colectivo(MedioDeTransporte):
     def entran_personas(self, cantidad):
         return True
 
+class Libro:
+    def __init__(self, titulo, paginas, genero, autoria):
+        self.titulo = titulo
+        self.paginas = paginas
+        self.genero = genero
+        self.autoria = autoria
+    
+    def es_largo(self):
+        return self.paginas > 300
+    
+    def nacionalidad(self):
+        return self.autoria["nacionalidad"]
 
+class Biblioteca:
+    def __init__(self):
+        self.libros = []
+
+    def agregar_libro(self, libro):
+        self.libros.append(libro)
+    
+    def libros_largos(self):
+        return [libro for libro in self.libros if libro.es_largo()]
+    
+    def titulos_disponibles(self):
+        return [libro.titulo for libro in self.libros]
+
+#Ejercicio 7
+#Definí una clase de gorriones, de los cuales nos interesa conocer dos medidas conocidas como
+#CSS (coeficiente de serenidad silenciosa), 
+#CSSP y CSSV (como el CSS pero “pico” y “veces”). 
+#El CSS resulta de dividir la cantidad total de kilómetros que vuela desde que se lo comienza a estudiar, 
+#por la cantidad total de gramos de comida que ingiere. El CSSP es la misma división 
+#pero considerando solamente lo que voló la vez que más voló y lo que comió la vez que más comió. 
+#El CSSV es otra vez la misma idea, respecto de la cantidad de veces que voló y comió. Si un gorrión nunca comió,
+#los coeficientes deben ser None. Un gorrión se considera en equilibrio si su CSS está entre 0.5 y 2.
+
+class Gorrion:
+   
+   def __init__(self):
+        self.kilometros = []
+        self.gramos = []
 
 
