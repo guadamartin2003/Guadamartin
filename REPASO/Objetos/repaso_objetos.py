@@ -43,8 +43,6 @@ pipita= "Golondrina" #: instancia
     #tiene que haber un tercer mensaje
 
 
-celular_de_lu=Celular(50,80)
-
 class Celular:
   def __init__(self, una_bateria, un_saldo, un_sistema_operativo): #__init__ #es el constructor, define el estado inicial.
     self.bateria = una_bateria
@@ -61,6 +59,8 @@ class Celular:
    
   def necesita_saldo(self): #retorna un booleano
     return self.saldo==0
+  
+celular_de_lu=Celular(50,80)
   
 class Gato:
   def __init__(self, una_energia, una_edad):
@@ -81,7 +81,6 @@ gato1 = Gato(10, 2) #inicial
 print(gato1.edad)  # salida: 2
 gato1.cumplir_anios()
 print(gato1.edad)  # salida: 3
-
 
 class EstudianteDeVeterinaria:
   
@@ -134,7 +133,7 @@ class Caballo:
     self.galopar(5)
 
 
-class Golondrina:
+class Golondrina():
   def __init__(self, una_energia, una_ciudad):
     self.energia = una_energia
     self.ciudad = una_ciudad
@@ -151,6 +150,7 @@ class Golondrina:
 
   def recibir_rehabilitacion(self):
     self.volar_hacia("Lihuel Calel")
+  
 
 class Pasta:
     def __init__(self): #siempre inicio con 0 ajies
@@ -214,7 +214,7 @@ class Notebook:
 class Dispositivo:
     def __init__(self, bateria):
         self.bateria = bateria
-        
+
     def tiene_bateria(self):
         return self.bateria > 20
 
@@ -235,46 +235,19 @@ class Notebook(Dispositivo):
         self.bateria -= minutos
 
 
-Dispositivo es una clase concreta.
+Dispositivo #es una clase abstracta. CORRECTA
 
+Tablet #es una clase concreta. CORRECTA
 
-Dispositivo es una clase abstracta. correcta
+Notebook #es una clase concreta. CORRECTA
 
+Tablet #hereda de Dispositivo. CORRECTA
 
-Tablet es una clase concreta. correcta
+Notebook #hereda de Dispositivo. CORRECTA
 
+#Las clases abstractas proveen comportamiento a sus subclases. CORRECTA
 
-Tablet es una clase abstracta.
-
-
-Notebook es una clase concreta. correcta
-
-
-Notebook es una clase abstracta.
-
-
-Tablet hereda de Dispositivo. correcta
-
-
-Dispositivo hereda de Tablet.
-
-
-Notebook hereda de Dispositivo. correcta
-
-
-Dispositivo hereda de Notebook. 
-
-
-Las clases abstractas proveen comportamiento a sus subclases. correcta
-
-
-Las clases abstractas se utilizan para crear instancias.
-
-
-Las clases concretas proveen comportamiento a su superclase.
-
-
-Las clases concretas se utilizan para crear instancias. correcta
+#Las clases concretas se utilizan para crear instancias. CORRECTA
 
 class MedioDeTransporte:
     def __init__(self, combustible):

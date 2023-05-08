@@ -44,7 +44,7 @@ class Perro:
         self.caricias += 1
 
     def estaDebil(self):
-        return self._caricias < 2
+        return self.caricias < 2
 
     def pasear(self, km):
         self.alimento -= km / 4
@@ -67,7 +67,7 @@ class Gato:
         self.caricias += 1
 
     def estaDebil(self):
-        return self._caricias < 4
+        return self.caricias < 4
     
 
 """
@@ -113,29 +113,25 @@ class MedioDeTransporte:
     def cargar_combustible(self, cantidad):
         self.combustible += cantidad
 
-    def entran_personas(self, cantidad):
-        raise NotImplementedError("Método no implementado en la clase base")
-
+    def hay_espacio(self, cantidad_personas):
+        return cantidad_personas <= self.capacidad_maxima()
 
 class Auto(MedioDeTransporte):
-    MAX_PERSONAS = 5
-    CONSUMO_COMBUSTIBLE = 0.5
+    def __init__(self, combustible_inicial):
+        self.combustible = combustible_inicial
+        self.capacidad_maxima = 5
 
-    def recorrer_distancia(self, distancia):
-        consumo = self.CONSUMO_COMBUSTIBLE * distancia
-        self.combustible -= consumo
 
-    def entran_personas(self, cantidad):
-        return cantidad <= self.MAX_PERSONAS
+    def consumir_combustible(self, distancia):
+        consumo = distancia * 0.5
+        if consumo <= self.combustible:
+            self.combustible -= consumo
+        else:
+            print("No hay suficiente combustible para recorrer esa distancia")
 
 
 class Moto(MedioDeTransporte):
-    MAX_PERSONAS = 2
-    CONSUMO_COMBUSTIBLE = 1.0
+    def __init__(self, combustible_inicial):
+        self.combustible = combustible_inicial
+        self.capacidad_maxima = 2
 
-    def recorrer_distancia(self, distancia):
-        consumo = self.CONSUMO_COMBUSTIBLE * distancia
-        self.combustible -= consumo
-
-    def entran_personas(self, cantidad):
-        return cantidad <= self.MAX_PERSONAS

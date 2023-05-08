@@ -76,7 +76,10 @@ class Notebook:
 
 """
 Ejercicio 4
-Definí una clase que modele un contador, el cual puede incrementar o disminuir en uno el valor que se ingresa, recordando el valor actual. También puede resetear este valor y al hacerlo se pone en cero. Además es posible indicar directamente un número nuevo que reemplace al valor actual. Este objeto debe entender los siguientes mensajes:
+Definí una clase que modele un contador, el cual puede incrementar o disminuir en uno el valor que se ingresa, 
+recordando el valor actual. También puede resetear este valor y al hacerlo se pone en cero. 
+Además es posible indicar directamente un número nuevo que reemplace al valor actual. 
+Este objeto debe entender los siguientes mensajes:
 
 inc()
 
@@ -124,7 +127,10 @@ contador.valorActual()
 
 """"
 Ejercicio 5
-Modificá el ejercicio anterior de manera que sea capaz de recordar cual fue el último comando que se le dió, en forma de mensaje. Estos mensajes pueden ser: "reset", "incremento", "disminución" o "actualización" (para cuando se coloca un valor nuevo). El método para saber el último comando es ultimoComando, y el resultado de aplicarlo a la serie de comandos dicha en el ejercicio anterior debería ser "disminución".
+Modificá el ejercicio anterior de manera que sea capaz de recordar cual fue el último comando que se le dió, en forma de mensaje. 
+Estos mensajes pueden ser: "reset", "incremento", "disminución" o "actualización" (para cuando se coloca un valor nuevo). 
+El método para saber el último comando es ultimoComando, 
+y el resultado de aplicarlo a la serie de comandos dicha en el ejercicio anterior debería ser "disminución".
 """
 class Contador:
     def __init__(self, valor_inicial):
@@ -155,7 +161,8 @@ class Contador:
 
 """
 Ejercicio 6
-Implementá una clase que represente una calculadora sencilla, que permita sumar, restar y multiplicar. Este objeto debe entender los siguientes mensajes:
+Implementá una clase que represente una calculadora sencilla, que permita sumar, restar y multiplicar. 
+Este objeto debe entender los siguientes mensajes:
 
 cargar(numero)
 
